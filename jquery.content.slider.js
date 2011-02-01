@@ -13,20 +13,21 @@
     };
     
     if(options) $.extend(settings,options)
-  
+
   	return this.each(function(){
   	  
   	  // Init Variables
   	  
   	  var $this = $(this),
-  	    	$slideshow = $(this).children('div'),
-  	    	$slidereel = $slideshow.find('ul');
+  	    	$slideshow = $this.children('div'),
+  	    	$slidereel = $slideshow.find('ul'),
   	    	$slideimages = $slidereel.find('li'),
   	    	pageli='',
   	    	imageWidth = $slideshow.width(),
           imageSum = $slideimages.size(),
           imageReelWidth = imageWidth * imageSum,
           imageReelHeight =$slideimages.height();
+
       
           $slidereel.css({
             width:imageReelWidth,
@@ -59,22 +60,22 @@
   	  
   	  
       	  //Paging + Slider Function
-        	rotate = function(){	
+        	function rotate(){	
         		var triggerID = $active.index(); //Get number of times to slide
         		var image_reelPosition = triggerID * imageWidth; //Determines the distance the image reel needs to slide
 
         		$(settings.pager).find("li").removeClass('active'); //Remove all active class
         		$active.addClass('active'); //Add active class (the $active is declared in the rotateSwitch function)
-
+        		
         		//Slider Animation
         		$slidereel.animate({ 
         			left: -image_reelPosition
         		}, 500);
         
-        	}; 
+        	}
     	
         	//Rotation + Timing Event
-        	rotateSwitch = function(){	
+        	function rotateSwitch(){	
         		play = setInterval(function(){ 
         			$active = $(settings.pager).find('.active').next();
         			if ( $active.length === 0) { //If paging reaches the end...
@@ -82,7 +83,7 @@
         			}
         			rotate(); 
         		}, settings.delay); 
-        	};
+        	}
       
           if(settings.autoplay) rotateSwitch();
             

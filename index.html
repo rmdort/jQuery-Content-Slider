@@ -1,0 +1,93 @@
+<!doctype html>  
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>jQuery Content Slider Demo</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-1000px">
+	<style type="text/css">
+		#SlideShow, #SlideShow2{
+		  list-style:none;
+		  overflow:hidden;
+		  margin:0 0 10px 0;
+		  width:500px;
+		  position:relative;
+		  
+		}
+		#SlideShow li, #SlideShow2 li{float:left; margin:0;}
+	  #SlideShow ul, #SlideShow2 ul{margin:0; width:10000px; padding:0;}
+		
+	</style>
+</head>
+<body>
+		
+	<h2>Slideshow with normal Pager</h2>
+	<!-- Slide Show -->
+	<div class="slideShowWrapper clearfix">
+		<div id="SlideShow">
+			<ul>
+				<li><img src="http://l.yimg.com/g/images/home_photo_tarotastic.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_kk.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_pmorgan.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_visualpanic.jpg" alt=""></li>
+			</ul>
+		</div>
+		<ul class="pager">
+			
+		</ul>
+	</div>
+	<!-- / Slide Show -->
+	
+	<h2>Slideshow with paginated thumbnails</h2>
+	
+	<!-- Slide Show -->
+	<div class="sliderThumbs clearfix">
+		<div id="SlideShow2">
+			<ul>
+				<li><img src="http://l.yimg.com/g/images/home_photo_tarotastic.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_kk.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_pmorgan.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_visualpanic.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_tarotastic.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_kk.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_pmorgan.jpg" alt=""></li>
+				<li><img src="http://l.yimg.com/g/images/home_photo_visualpanic.jpg" alt=""></li>
+			</ul>
+		</div>
+		<a href="#" id="Prev">Prev</a>
+		<ul id="Thumbs">
+			<li><img src="http://l.yimg.com/g/images/home_photo_tarotastic.jpg" alt="" width="40" height="40"></li>
+			<li><img src="http://l.yimg.com/g/images/home_photo_kk.jpg" alt="" width="40" height="40"></li>
+			<li><img src="http://l.yimg.com/g/images/home_photo_pmorgan.jpg" alt="" width="40" height="40"></li>
+			<li><img src="http://l.yimg.com/g/images/home_photo_visualpanic.jpg" alt="" width="40" height="40"></li>
+			<li><img src="http://l.yimg.com/g/images/home_photo_tarotastic.jpg" alt="" width="40" height="40"></li>
+			<li><img src="http://l.yimg.com/g/images/home_photo_kk.jpg" alt="" width="40" height="40"></li>
+			<li><img src="http://l.yimg.com/g/images/home_photo_pmorgan.jpg" alt="" width="40" height="40"></li>
+			<li><img src="http://l.yimg.com/g/images/home_photo_visualpanic.jpg" alt="" width="40" height="40"></li>
+		</ul>
+		<a href="#" id="Next">Next</a>
+	</div>
+	<!-- / Slide Show -->
+	
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="jquery.content.slider.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.slideShowWrapper').slideshow({autoplay:false});
+			
+			$('.sliderThumbs').slideshow({
+		    autoplay:false,
+		    pagerthumbs:true,
+				perpage:3
+		  });
+		});
+	</script>
+</body>
+</html>
