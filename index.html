@@ -20,8 +20,8 @@
 		  position:relative;
 		  
 		}
-		#SlideShow li, #SlideShow2 li{float:left; margin:0;}
-	  #SlideShow ul, #SlideShow2 ul{margin:0; width:10000px; padding:0;}
+		#SlideShow li{float:left; margin:0;}
+	  #SlideShow ul{margin:0; width:10000px; padding:0;}
 		
 	</style>
 </head>
@@ -48,7 +48,7 @@
 	
 	<!-- Slide Show -->
 	<div class="sliderThumbs clearfix">
-		<div id="SlideShow2">
+		<div id="SlideShow">
 			<ul>
 				<li><img src="http://l.yimg.com/g/images/home_photo_tarotastic.jpg" alt=""></li>
 				<li><img src="http://l.yimg.com/g/images/home_photo_kk.jpg" alt=""></li>
@@ -80,7 +80,7 @@
 	<script src="jquery.content.slider.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('.slideShowWrapper').slideshow({autoplay:false});
+			$('.slideShowWrapper').slideshow({autoplay:true});
 			
 			$('.sliderThumbs').slideshow({
 		    autoplay:false,

@@ -9,7 +9,8 @@
       delay:5000,
       pagerthumbs:false,
       perpage:5,
-      pagerid:'#Thumbs'
+      pagerid:'#Thumbs',
+      pauseonhover:false
     };
     
     if(options) $.extend(settings,options)
@@ -43,11 +44,11 @@
       	  if(!settings.pagerthumbs){
       	    $(settings.pager).append(pageli).find('li:first').addClass("active").end()
         	  .find("li").live('click',function(e) {	
+        	    e.preventDefault();
           		$active = $(this); 
           		if(settings.autoplay) clearInterval(play); 
           		rotate(); 
           		if(settings.autoplay) rotateSwitch();
-          		e.preventDefault();
           	});
           	
       	  }
@@ -59,7 +60,7 @@
   	  
   	  
       	  //Paging + Slider Function
-        	rotate = function(){	
+        	function rotate(){	
         		var triggerID = $active.prevAll().length; //Get number of times to slide
         		var image_reelPosition = triggerID * imageWidth; //Determines the distance the image reel needs to slide
 
@@ -74,7 +75,7 @@
         	}; 
     	
         	//Rotation + Timing Event
-        	rotateSwitch = function(){	
+        	function rotateSwitch(){	
         		play = setInterval(function(){ 
         			$active = $(settings.pager).find('.active').next();
         			if ( $active.length === 0) { //If paging reaches the end...
@@ -87,13 +88,14 @@
           if(settings.autoplay) rotateSwitch();
             
           //On Hover
-
-        	$slideshow.hover(function() {
-        		if(settings.autoplay) clearInterval(play); //Stop the rotation
-        	}, function() {
-        		if(settings.autoplay) rotateSwitch(); //Resume rotation
-        	});
-  	  
+          if(settings.pauseonhover){
+          	$slideshow.hover(function() {
+          		if(settings.autoplay) clearInterval(play); //Stop the rotation
+          	}, function() {
+          		if(settings.autoplay) rotateSwitch(); //Resume rotation
+          	});
+          
+          }  	  
   	  
       	  // Pagination
   	      
